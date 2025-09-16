@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather Widget</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div id="widget-root">
+  <div class="widget-card" id="weather-card">
+    <div class="widget-header">
+      <div class="location-info">
+        <div class="city-name" id="city">New York</div>
+        <div class="temp" id="temperature">--°F</div>
+        <div class="description" id="description">Loading...</div>
+      </div>
+      <div class="weather-icon">
+        <img id="weather-icon" src="icons/sun.svg" alt="Weather Icon" />
+      </div>
+    </div>
+
+    <!-- 🌧 Rain Block -->
+    <div class="rain-block">
+      <img src="icons/rain.svg" alt="Rain" />
+      <span>Rain: <span id="rain">--%</span></span>
+    </div>
+
+    <!-- 💧 Humidity + Wind Row -->
+    <div class="details-row">
+      <span>Humidity: <span id="humidity">--%</span></span>
+      <span>Wind: <span id="wind">-- mph</span></span>
+    </div>
+
+    <!-- 📅 Weekly Forecast -->
+    <div class="weekly-forecast" id="weekly-forecast">
+      <!-- JS will fill in the days -->
+    </div>
+
+    <!-- ⚙ Settings Button -->
+    <button id="settings-button" type="button">
+      <img src="icons/settings.svg" alt="Settings" />
+    </button>
+  </div>
+
+  <!-- ⚙️ Settings Modal -->
+  <div class="settings-modal hidden" id="settings-modal">
+    <div class="modal-content">
+      <label for="city-search">City:</label>
+      <input type="text" id="city-search" placeholder="Enter a city..." />
+
+      <label for="unit-toggle">Units:</label>
+      <select id="unit-toggle">
+        <option value="imperial">°F</option>
+        <option value="metric">°C</option>
+      </select>
+
+      <div class="modal-buttons">
+        <button id="save-city" type="button">Save</button>
+        <button id="close-settings" type="button">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <script src="script.js"></script>
+</body>
+</html>

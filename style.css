@@ -1,0 +1,239 @@
+/* 🌍 Global Reset + Scaling */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #191919;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* 📦 Widget Container */
+.widget-card {
+  background-color: #191919;
+  border-radius: 1.25rem; /* 20px → rem */
+  padding: 1.25rem;       /* 20px → rem */
+  box-shadow: 0 0 1.25rem rgba(255, 255, 255, 0.1);
+  max-width: 90vw;        /* scales in Notion */
+  width: 100%;
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* 📌 Widget Header */
+.widget-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.location-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.city-name {
+  font-size: clamp(1rem, 1.2vw, 1.2rem);
+  font-weight: 600;
+}
+
+.temp {
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 700;
+}
+
+.description {
+  font-size: clamp(0.75rem, 1vw, 0.9rem);
+  font-weight: 400;
+  color: #cccccc;
+}
+
+/* 🌤️ Weather Icon */
+.weather-icon img {
+  width: clamp(3rem, 15vw, 5.6rem);   /* responsive */
+  height: auto;
+  margin-right: clamp(1rem, 5vw, 2.8rem);
+}
+
+/* 🌧 Rain Block */
+.rain-block {
+  background-color: #111; /* slightly darker than card */
+  border-radius: 12px;
+  padding: 0.5rem 1rem;
+  margin: 1rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: clamp(0.8rem, 1vw, 1rem);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+}
+
+.rain-block img {
+  width: 20px;
+  height: 20px;
+}
+
+/* 💧 Humidity + Wind Row */
+.details-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  font-size: clamp(0.8rem, 1vw, 1rem);
+  color: #ddd;
+}
+
+/* 📅 Weekly Forecast */
+.weekly-forecast {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.9rem;
+  padding: 0.5rem; /* optional: gives breathing room inside row */
+}
+
+.forecast-day {
+  flex: 1;
+  background-color: #111;
+  border-radius: 12px;
+  padding: 0.5rem 0.25rem;
+  text-align: center;
+  font-size: clamp(0.7rem, 1vw, 0.9rem);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+}
+
+.forecast-day img {
+  width: 28px;
+  height: 28px;
+  margin: 0.25rem 0;
+}
+
+.forecast-day .day {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.forecast-day .temps {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem; /* small spacing */
+  font-size: 0.8rem;
+}
+
+.forecast-day .temp-low {
+  color: #ccc; /* lighter for low temp */
+}
+
+.forecast-day .temp-high {
+  color: #fff; /* brighter for high temp */
+  font-weight: 600;
+}
+
+/* ⚙️ Settings Button */
+#settings-button {
+  background: none;
+  border: none;
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  cursor: pointer;
+}
+
+#settings-button img {
+  width: 1rem;
+  height: 1rem;
+  filter: invert(41%) sepia(1%) saturate(0%) hue-rotate(314deg) brightness(95%) contrast(90%);
+}
+
+/* ⚙️ Settings Modal */
+.settings-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #2c2c2c;
+  border-radius: 0.625rem; /* 10px */
+  padding: 1rem;
+  display: none;
+  flex-direction: column;
+  z-index: 2000;
+  width: min(90vw, 20rem); /* scales, but caps at 320px */
+  box-sizing: border-box;
+}
+
+.settings-modal.hidden {
+  display: none;
+}
+
+.settings-modal.visible {
+  display: flex;
+}
+
+/* 📝 Labels */
+.settings-modal label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-size: clamp(0.8rem, 1vw, 0.9rem);
+  font-weight: 500;
+}
+
+/* 🔹 Text Input */
+.settings-modal input[type="text"] {
+  display: block;
+  width: 100%;
+  background-color: #191919;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  color: white;
+  font-size: clamp(0.8rem, 1vw, 0.9rem);
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.6);
+  outline: none;
+  margin-bottom: 0.75rem;
+  box-sizing: border-box;
+}
+
+/* 🔹 Select Box */
+.settings-modal select {
+  display: block;
+  width: 100%;
+  background-color: #191919;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  color: white;
+  font-size: clamp(0.8rem, 1vw, 0.9rem);
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.6);
+  outline: none;
+  margin-bottom: 1rem;
+  box-sizing: border-box;
+
+  /* custom arrow */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-position: right 0.75rem center;
+  background-repeat: no-repeat;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='white' height='20' viewBox='0 0 24 24' width='20' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  padding-right: 2rem;
+}
+
+/* 🔘 Modal Buttons */
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.settings-modal button {
+  padding: 0.5rem 0.75rem;
+  background-color: white;
+  color: #191919;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: clamp(0.8rem, 1vw, 0.9rem);
+}
