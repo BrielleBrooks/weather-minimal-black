@@ -1,24 +1,24 @@
-/* 🌍 Global Reset + Scaling */
+/* 🌍 Global Reset + Transparent Background */
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  background-color: #191919;
+  background: transparent; /* 🔥 make background invisible */
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 100%;
+  width: 100%;
 }
 
-/* 📦 Widget Container */
 .widget-card {
   background-color: #191919;
-  border-radius: 1.25rem; /* 20px → rem */
-  padding: 1.25rem;       /* 20px → rem */
+  border-radius: 1.25rem;
+  padding: 1.25rem;
   box-shadow: 0 0 1.25rem rgba(255, 255, 255, 0.1);
-  max-width: 90vw;        /* scales in Notion */
   width: 100%;
-  position: relative;
+  max-width: 400px;   /* scales nicely inside Notion */
+  height: auto;
   box-sizing: border-box;
 }
 
